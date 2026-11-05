@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { connection } from "next/server";
 
 import { gjejUdhetimin } from "@/lib/udhetimet";
+import Vendndodhja from "@/components/Vendndodhja";
 
 export default function DetajetUdhëtimi({
   params,
@@ -31,6 +32,7 @@ async function TripDetails({ params }: { params: Promise<{ id: string }> }) {
       <p>Ora: {udhetim.ora}</p>
       <p>Vendtakimi: {udhetim.vendtakimi}</p>
       <p>Vende të lira: {udhetim.vende}</p>
+      <Vendndodhja />
       {udhetim.vende > 0 ? (
         <Link className="action" href={`/udhetimi/${id}/kerkesa`}>Kërko vend</Link>
       ) : (
